@@ -25,3 +25,6 @@ vim.keymap.set("n", "<leader>mp", ":MarkdownPreviewToggle<cr>")
 -- comment toggle
 vim.keymap.set({ "n", "v" }, "<leader>/", ":CommentToggle<cr>")
 
+-- yank to clip board
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+
