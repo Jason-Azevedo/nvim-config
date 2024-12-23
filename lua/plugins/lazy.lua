@@ -20,7 +20,9 @@ vim.opt.rtp:prepend(lazypath)
 -- Paste lazy plugin setup here
 require("lazy").setup({
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+
     	{ "nvim-telescope/telescope.nvim", tag = "0.1.8", dependencies = { 'nvim-lua/plenary.nvim' } },
+
 	{
 	  "nvim-tree/nvim-tree.lua",
 	  version = "*",
@@ -32,7 +34,22 @@ require("lazy").setup({
 	    require("nvim-tree").setup {}
 	  end,
 	},
-	{'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'}
+
+	{'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
+
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = "MarkdownPreviewToggle",
+		ft = { "markdown" },
+		build = function() nvim.fn["mkdp#util#install"]() end
+	},
+
+	{
+		"terrortylor/nvim-comment",
+		config = function()
+			require("nvim_comment").setup({ create_mappings = false })
+		end
+	}
 })
 
 
